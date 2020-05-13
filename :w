@@ -13,7 +13,6 @@ const SPLIT_NUM: usize = 100;
 const WIDTH: f64 = 640.0;
 const HEIGHT: f64 = 480.0;
 const AMPLITUDE: f64 = 100.0;
-const FREQUENCY: f64 = 2.0;
 
 const V_CENTER: f64 = HEIGHT / 2.0;
 
@@ -33,6 +32,11 @@ fn main() {
             app.render(&args);
         }
     }
+
+    for i in 0..SPLIT_NUM {
+        println!("{}", (i as f64) * PI * 4.0 / HEIGHT);
+    }
+    println!("Hello, world!");
 }
 
 struct App {
@@ -63,5 +67,5 @@ fn water_wave(i: usize) -> [f64; 4] {
 }
 
 fn wave_func(i: usize) -> f64 {
-    ((i as f64) * PI * 2.0 / (SPLIT_NUM as f64) * FREQUENCY).sin() * AMPLITUDE
+    ((i as f64) * PI * 2.0 / (SPLIT_NUM as f64)).sin() * AMPLITUDE
 }
